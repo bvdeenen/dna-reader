@@ -439,38 +439,27 @@ display_hex_32_bit: LOAD s6, 04                         ;4 bytes to display
                     LOAD s5, character_y
                     CALL LCD_write_data
                     CALL disp_space
-                    LOAD s5, character_K
-                    CALL LCD_write_data
-                    LOAD s5, character_e
-                    CALL LCD_write_data
-                    LOAD s5, character_n
-                    CALL LCD_write_data
-                    CALL disp_space
-                    LOAD s5, character_C
-                    CALL LCD_write_data
-                    LOAD s5, character_h
+                    LOAD s5, character_B
                     CALL LCD_write_data
                     LOAD s5, character_a
                     CALL LCD_write_data
-                    LOAD s5, character_p
+                    LOAD s5, character_r
                     CALL LCD_write_data
-                    LOAD s5, character_m
+                    LOAD s5, character_t
                     CALL LCD_write_data
-                    LOAD s5, character_a
-                    CALL LCD_write_data
-                    LOAD s5, character_n
+                    LOAD s5, character_2
                     CALL LCD_write_data
                     RETURN
                     ;
                     ; Display 'Device DNA' on LCD at current cursor position
                     ;
-   disp_Device_DNA: LOAD s5, character_M
+   disp_Device_DNA: LOAD s5, character_B
                     CALL LCD_write_data
                     LOAD s5, character_a
                     CALL LCD_write_data
-                    LOAD s5, character_j
+                    LOAD s5, character_r
                     CALL LCD_write_data
-                    LOAD s5, character_a
+                    LOAD s5, character_t
                     CALL LCD_write_data
                     CALL disp_space
                     ;

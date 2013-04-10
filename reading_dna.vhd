@@ -86,6 +86,7 @@ architecture Behavioral of reading_dna is
   component dna_ctrl
     Port (      address : in std_logic_vector(9 downto 0);
             instruction : out std_logic_vector(17 downto 0);
+				proc_reset  : out std_logic;
                     clk : in std_logic);
     end component;
 --
@@ -102,7 +103,7 @@ signal  write_strobe     : std_logic;
 signal  read_strobe      : std_logic;
 signal  interrupt        : std_logic :='0';
 signal  interrupt_ack    : std_logic;
-signal  kcpsm3_reset     : std_logic;
+signal  reset     : std_logic;
 --
 --
 -- Signals used to generate interrupt 
@@ -174,15 +175,15 @@ begin
                    in_port => in_port,
                  interrupt => interrupt,
              interrupt_ack => interrupt_ack,
-                     reset => kcpsm3_reset,
+                     reset => reset,
                        clk => clk);
  
   program_rom: dna_ctrl
     port map(      address => address,
                instruction => instruction,
+					 proc_reset  => reset,
                        clk => clk);
 
-  kcpsm3_reset <= '0';                       
   
   --
   ----------------------------------------------------------------------------------------------------------------------------------
