@@ -1,0 +1,60 @@
+# Constraints for reference design 'reading_dna'.
+#
+# Spartan-3A Starter Kit with XC3S700A.
+#
+# Ken Chapman - Xilinx Ltd 
+#                          
+# 2nd January 2007
+#
+# Period constraint for 50MHz operation of control logic
+#
+NET "clk" PERIOD = 20.0ns HIGH 50%;
+#
+#
+# I/O constraints
+#
+#
+#
+# soldered 50MHz Clock.
+# 
+NET "clk" LOC = "E12" | IOSTANDARD = LVTTL;
+#
+#
+# Simple LEDs 
+# Require only 3.5mA. 
+#
+NET "led<0>" LOC = "R20" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<1>" LOC = "T19" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<2>" LOC = "U20" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<3>" LOC = "U19" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<4>" LOC = "V19" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<5>" LOC = "V20" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<6>" LOC = "Y22" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<7>" LOC = "W21" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#
+#
+# LCD display
+# Very slow so can use lowest drive strength. 
+#
+NET "lcd_rs"   LOC = "Y14"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_rw"   LOC = "W13"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_e"    LOC = "AB4"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_d<0>" LOC = "Y13"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_d<1>" LOC = "AB18" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_d<2>" LOC = "AB17" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_d<3>" LOC = "AB12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_d<4>" LOC = "AA12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_d<5>" LOC = "Y16"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_d<6>" LOC = "AB16" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_d<7>" LOC = "Y15"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+#
+#
+# Test points using J2 connector pins for convenience
+#
+NET "j2_30"   LOC = "A11"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "j2_26"   LOC = "C10"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "j2_22"   LOC = "A8"   | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "j2_14"   LOC = "A6"   | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#
+# End of File
+#
