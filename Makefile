@@ -35,6 +35,6 @@ reading_dna.ncd: reading_dna.pcf
 	par -w -intstyle ise -ol high -t 1 reading_dna_map.ncd reading_dna.ncd reading_dna.pcf
 	trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml reading_dna.twx reading_dna.ncd -o reading_dna.twr reading_dna.pcf -ucf reading_dna.ucf
 
-reading_dna.bit:
+reading_dna.bit: reading_dna.ncd
 	bitgen -intstyle ise -f reading_dna.ut reading_dna.ncd
 
