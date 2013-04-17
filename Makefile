@@ -22,3 +22,19 @@ clean:
 	@-rm dna_ctrl.coe dna_ctrl.fmt dna_ctrl.log dna_ctrl.vhd dna_ctrl.mem
 	@-rm pass*.dat labels.txt constant.txt
 
+
+reading_dna.ngd:
+	xst -intstyle ise -ifn reading_dna.xst -ofn reading_dna.syr
+	ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc reading_dna.ucf -p xc3s700a-fg484-4 reading_dna.ngc reading_dna.ngd
+
+reading_dna.pcf: reading_dna.ngd
+	map -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr off -c 100 -o reading_dna_map.ncd reading_dna.ngd reading_dna.pcf
+
+
+reading_dna.ncd: reading_dna.pcf
+	par -w -intstyle ise -ol high -t 1 reading_dna_map.ncd reading_dna.ncd reading_dna.pcf
+	trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml reading_dna.twx reading_dna.ncd -o reading_dna.twr reading_dna.pcf -ucf reading_dna.ucf
+
+reading_dna.bit:
+	bitgen -intstyle ise -f reading_dna.ut reading_dna.ncd
+
