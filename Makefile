@@ -24,6 +24,7 @@ clean:
 
 
 reading_dna.ngd: dna_ctrl.vhd
+	mkdir -p xst/projnav.tmp
 	xst -intstyle ise -ifn reading_dna.xst -ofn reading_dna.syr
 	ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc reading_dna.ucf -p xc3s700a-fg484-4 reading_dna.ngc reading_dna.ngd
 
