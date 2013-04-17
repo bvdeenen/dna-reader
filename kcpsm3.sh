@@ -1,11 +1,12 @@
 #!/bin/bash
 
+
 # here I keep the dos files
 # The unix path is a link to the directory with KCPSM3.EXE and ROM_form.* files in it
 UNIXPATH=./XASM
 TIMESTAMPFILE=$UNIXPATH/.timestamp
 LOGFILE=kcpsm3.log
-ln -sf $PWD/XASM/ ~/.dosemu/drive_c/XASM
+ln -sf $PWD/XASM $HOME/.dosemu/drive_c/XASM
 
 if [ ! -e $UNIXPATH/KCPSM3.EXE -o ! -e $UNIXPATH/ROM_form.coe -o \
     ! -e $UNIXPATH/ROM_form.vhd -o ! -e $UNIXPATH/ROM_form.v ] ; then
@@ -27,6 +28,7 @@ dosemu -dumb -quiet -input "$INPUT"
 mv $(find $UNIXPATH/ -type f -newer $TIMESTAMPFILE) .
 rm $TIMESTAMPFILE
 rm $UNIXPATH/$(basename $FILENAME)
+rm $HOME/.dosemu/drive_c/XASM
 
 ERR=$(egrep "^ERROR" $LOGFILE)
 if [ "$ERR" != "" ] ; then
