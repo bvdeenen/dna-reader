@@ -39,3 +39,4 @@ reading_dna.ncd: reading_dna.pcf
 reading_dna.bit: reading_dna.ncd
 	bitgen -intstyle ise -f reading_dna.ut reading_dna.ncd
 
+
