@@ -439,7 +439,7 @@ display_hex_32_bit: LOAD s6, 04                         ;4 bytes to display
                     LOAD s5, character_y
                     CALL LCD_write_data
                     CALL disp_space
-                    LOAD s5, character_B
+                    LOAD s5, character_Z
                     CALL LCD_write_data
                     LOAD s5, character_a
                     CALL LCD_write_data

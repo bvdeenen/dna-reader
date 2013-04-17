@@ -22,7 +22,6 @@ dna-reader.ipf
 *.m
 *.mem
 *.v
-dna_ctrl.vhd
 *.gise
 ise_*
 iseconfig/
