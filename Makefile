@@ -1,7 +1,7 @@
-all: dna_ctrl.xsvf
+all: pico
 
-dna_ctrl.mem dna_ctrl.hex: dna_ctrl.psm	
-	kcpsm3.sh dna_ctrl.psm
+dna_ctrl.mem dna_ctrl.vhd dna_ctrl.hex: dna_ctrl.psm	
+	./kcpsm3.sh dna_ctrl.psm
 
 dna_ctrl.svf: dna_ctrl.hex
 	dosemu hex2svf.exe dna_ctrl.hex  dna_ctrl.svf
@@ -23,7 +23,7 @@ clean:
 	@-rm pass*.dat labels.txt constant.txt
 
 
-reading_dna.ngd:
+reading_dna.ngd: dna_ctrl.vhd
 	xst -intstyle ise -ifn reading_dna.xst -ofn reading_dna.syr
 	ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc reading_dna.ucf -p xc3s700a-fg484-4 reading_dna.ngc reading_dna.ngd
 
