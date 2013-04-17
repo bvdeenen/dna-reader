@@ -22,6 +22,9 @@ clean:
 	@-rm dna_ctrl.coe dna_ctrl.fmt dna_ctrl.log dna_ctrl.vhd dna_ctrl.mem
 	@-rm pass*.dat labels.txt constant.txt
 
+distclean:
+	git clean -dxf
+
 
 reading_dna.ngd: dna_ctrl.vhd
 	mkdir -p xst/projnav.tmp
